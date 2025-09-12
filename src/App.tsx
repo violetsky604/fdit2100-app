@@ -1,9 +1,16 @@
-export default function App() {
+import { Separator } from '@/components/ui/separator';
+import './App.css';
+import Header from '@/components/header/Header';
+import LatestPosts from '@/components/latestPosts/Latestposts';
+
+function App() {
   return (
-    <div className="min-h-screen flex items-center justify-center">
-      <h1 className="text-5xl font-bold text-pink-500">
-        Hello, Tailwind 💖
-      </h1>
-    </div>
+    <>
+      <Header />
+      <Separator className="bg-amber-600" />
+       <LatestPosts />
+    </>
   );
 }
+
+export default App;

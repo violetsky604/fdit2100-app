@@ -1,14 +1,12 @@
-function reverseOrder(s){
-    let use = "";
-    for (let i = s.length - 1;i >= 0;i--){
-        use = use + s[i];
+
+
+    function hasAllUniqueLetters(s){
+        const seen =  new Set();
+        for (const ch of s){
+        if (seen.has(ch)) return false;
+        }
+        seen.add(ch);
+        
     }
-    return use;
-}
 
-console.log(reverseOrder("hello"));
-console.log(reverseOrder("bunny"));
-
-function allUniqueLetters(s){
-    
-}
+    return true;
