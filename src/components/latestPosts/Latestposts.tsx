@@ -1,5 +1,6 @@
 import { PlusIcon } from '@heroicons/react/24/solid';
 import { Button } from '@/components/ui/button';
+//import styles from './latestPosts.module.css';
 
 export default function LatestPosts() {
     return (
