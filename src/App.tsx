@@ -1,15 +1,22 @@
+import {
+  QueryClient,
+  QueryClientProvider
+} from '@tanstack/react-query';
 import Header from '@/components/header/Header';
 import LatestPosts from '@/components/latestPosts/LatestPosts';
 import { Separator } from '@/components/ui/separator';
 import './App.css';
 
 function App() {
+  const queryClient = new QueryClient();
 
   return (
     <>
-      <Header />
-      <Separator />
-      <LatestPosts />
+      <QueryClientProvider client={queryClient}>
+        <Header />
+        <Separator />
+        <LatestPosts />
+      </QueryClientProvider>
     </>
   )
 }
