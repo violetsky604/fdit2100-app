@@ -1,7 +1,4 @@
-import{
-  QueryClient,
-  QueryClientProvider
-} from '@canstack/react-query';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
 import { Separator } from '@/components/ui/separator';
 import './App.css';
@@ -13,10 +10,10 @@ function App() {
 
 
 
-  return (
-    <QueryClientProvider client = {QueryClientProvider}>
+  return (  
+    <QueryClientProvider client = {queryClient}>
       <Header />
-      <Separator className="bg-amber-600" />
+      <Separator className="bg-white" />
        <LatestPosts />
     </QueryClientProvider>
   );
