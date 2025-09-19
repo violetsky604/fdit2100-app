@@ -4,7 +4,7 @@ import styles from './postsList.module.css';
 
 export default function PostsList() {
     const { data }  = useSuspenseQuery({ queryKey: ['posts'], queryFn: fetchPosts });
-    // console.log('data', data);
+
     return (
         <ul>
             {data.posts.map(post => (

@@ -1,5 +1,6 @@
 import { Suspense } from 'react';
 import { PlusIcon } from '@heroicons/react/24/solid';
+import ErrorBoundary from '@/components/errors/ErrorBoundary';
 import { Button } from '@/components/ui/button';
 import PostsList from '@/components/ui/posts/PostsList';
 import PostsSkeleton from '@/components/ui/skeletons/PostsSkeleton';
@@ -16,9 +17,11 @@ export default function LatestPosts() {
                     <PlusIcon className="size-6" /> Create Post
                 </Button>
             </div>
-            <Suspense fallback={<PostsSkeleton />}>
-                <PostsList />
-            </Suspense>
+            <ErrorBoundary message="Failed to load posts">
+                <Suspense fallback={<PostsSkeleton />}>
+                    <PostsList />
+                </Suspense>
+            </ErrorBoundary>
         </main>
     );
 }
