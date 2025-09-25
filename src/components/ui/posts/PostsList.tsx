@@ -1,6 +1,6 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useSuspenseInfiniteQuery } from '@tanstack/react-query';
-import { ArrowRightIcon } from '@heroicons/react/24/solid';
+import { ArrowRightIcon, BellSlashIcon } from '@heroicons/react/24/solid';
 import { Button } from '@/components/ui/button';
 import { fetchPosts } from '@/lib/api';
 import Post from '@/components/ui/posts/Post';
@@ -8,6 +8,24 @@ import styles from '@/components/latestPosts/latestPosts.module.css';
 
 export default function PostsList(){
     const [page, setPage] = useState(0);
+    const postListRef = useRef(null);
+    useEffect(() => {
+        if (postListRef.current){
+            const observer = new MutationObserver(() => {
+                window.scrollBy({
+                    left: 0,
+                    top: window.innerHeight - 180,
+                    behavior: 'smooth',
+            });
+        });
+
+        observer.observe(postListRef.current, {
+            childList: true,
+        });
+        return () => observer.disconnect();
+    }
+
+    }, []);  
     const { 
         data,
         fetchNextPage,
@@ -24,7 +42,7 @@ export default function PostsList(){
 
     return (
         <>
-        <ul>
+        <ul ref={postListRef}>
             {data.pages.map((page, pageIndex) => {
             return page.posts.map((post, postIndex) => (
                 <Post key={post.id} post={post} isLast={pageIndex=== data.pages.length - 1 &&
