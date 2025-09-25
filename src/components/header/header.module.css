@@ -7,3 +7,7 @@
 .navlink:hover {
     @apply text-slate-400;
 }
+
+.header {
+    @apply sticky top-0 flex justify-between items-center h-19 px-10 pb-5 pt-4 bg-white dark:bg-[#242424];
+}

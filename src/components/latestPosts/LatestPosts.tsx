@@ -8,8 +8,8 @@ import styles from './latestPosts.module.css';
 
 export default function LatestPosts() {
     return (
-        <main className="max-w-4xl mx-auto px-4 py-8">
-            <div className="flex justify-between">
+        <main className="max-w-4xl mx-auto px-4 pb-8">
+            <div className={styles.latest_posts_container}>
                 <h2 className="text-4xl font-bold mb-6">
                     Latest Posts
                 </h2>
