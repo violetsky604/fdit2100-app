@@ -1,8 +1,10 @@
-import axious from 'axios';
+import axios from 'axios';
 import { type PostResponse } from './types/post';
+import { API_BASE_URL } from './constants';
+import { POSTS_PER_PAGE } from './constants';
 
-export function fetchPosts(){
-    return axious.get<PostResponse>('https://dummyjson.com/posts')
+export function fetchPosts(page: number){
+    return axios.get<PostResponse>(`${API_BASE_URL}/posts?limit=${POSTS_PER_PAGE}&skip=${page * POSTS_PER_PAGE  }`)
     .then(response => response.data);
 }
 

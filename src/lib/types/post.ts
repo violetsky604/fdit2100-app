@@ -14,8 +14,8 @@ export interface Post {
 
 export interface PostResponse {
     posts: Post[];
-    totel: number;
-    skips: number;
+    total: number;
+    skip: number;
     limit: number;
 
 }
