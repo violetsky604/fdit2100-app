@@ -27,7 +27,7 @@ export default class ErrorBoundary extends Component<Props, State> {
     public render(){
         if(this.state.hasError){
             return (<div className='flex text-red-500'>
-                <ExclamationTriangleIcon className="size-6 mr-4" /> {`{ ERROR_NOTICE } ${this.props.message}`}
+                <ExclamationTriangleIcon className="size-6 mr-4" /> {`${ERROR_NOTICE } ${this.props.message}`}
 
             </div>);
         }

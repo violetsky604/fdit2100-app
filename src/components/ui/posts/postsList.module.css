@@ -1,5 +1,9 @@
 @import 'tailwindcss';
 
-.postbody{
+.postBody{
     @apply text-gray-700 dark:text-pink-200;
+}
+
+.postLikesAndViews {
+    @apply text-gray-500 text-sm font-semibold dark:text-gray-200;
 }
