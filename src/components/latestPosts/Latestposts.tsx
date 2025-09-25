@@ -8,8 +8,8 @@ import styles from './latestPosts.module.css';
 
 export default function LatestPosts() {
     return (
-        <main className="max-w-4xl mx-auto px-4 py-8">
-        <div className="flex justify-between">
+        <main className="max-w-4xl mx-auto px-4 pb-8">
+        <div className={styles.latest_posts_container}>
             <h2 className="text-4x1 font-bold mb-6">
                 Latest Posts
             </h2>
@@ -17,7 +17,7 @@ export default function LatestPosts() {
                 <PlusIcon className="size-6" /> Create Post
             </Button>
         </div>
-        <ErrorBoundary messaage="Failed to load posts">
+        <ErrorBoundary message="Failed to load posts">
         <Suspense fallback={<PostsSkeleton />}>
             <PostsList />
         </Suspense>

@@ -13,7 +13,7 @@ function App() {
     <QueryClientProvider client={queryClient}>
        {/* posts from first class */} 
       <Header />
-      <Separator className="bg-white" />
+      <Separator className="sticky top-19 bg-white" />
       <LatestPosts />
 
       {/* assignment 1 */}
