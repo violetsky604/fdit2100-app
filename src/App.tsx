@@ -1,9 +1,9 @@
+import { Outlet } from 'react-router';
 import {
   QueryClient,
   QueryClientProvider
 } from '@tanstack/react-query';
 import Header from '@/components/header/Header';
-import LatestPosts from '@/components/latestPosts/LatestPosts';
 import { Separator } from '@/components/ui/separator';
 import './App.css';
 
@@ -15,7 +15,9 @@ function App() {
       <QueryClientProvider client={queryClient}>
         <Header />
         <Separator className="sticky top-19" />
-        <LatestPosts />
+        <main className="max-w-4xl mx-auto px-4 pb-8">
+          <Outlet />
+        </main>
       </QueryClientProvider>
     </>
   )
