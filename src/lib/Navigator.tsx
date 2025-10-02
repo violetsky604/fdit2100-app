@@ -2,6 +2,8 @@ import { type RouteObject } from "react-router";
 import App from '@/App';
 import LatestPosts from "@/components/latestPosts/LatestPosts";
 import Members from "@/screens/members/Members";
+import Messages from "@/screens/messages/Messages";
+import Notifications from "@/screens/notifications/Notifications";
 
 const routes: RouteObject[] = [
     {
@@ -15,6 +17,14 @@ const routes: RouteObject[] = [
             {
                 path: '/members',
                 Component: Members
+            },
+            {
+                path: '/messages',
+                Component: Messages
+            },
+            {
+                path: '/notifications',
+                Component: Notifications
             }
         ]
     }
