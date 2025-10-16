@@ -21,6 +21,7 @@ interface MenuItem {
 
 interface MenuItemProps {
     item: MenuItem;
+    clickHandler: () => void;   
 }
 
 const menuItems: MenuItem[] =[
