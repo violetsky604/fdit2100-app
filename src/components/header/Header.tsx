@@ -5,10 +5,11 @@ import { useAppStore } from '@/lib/appStore';
 import { type ClassnameProps } from '@/lib/types/post';
 import styles from './header.module.css';
 import HamburgerMenu from '@/components/header/HamburgerMenu';
+import { Button } from '@/components/ui/button';
 
 
 export default function Header() {
-    const { user, isAuthenticated } = useAppStore();
+    const { logout, user, isAuthenticated } = useAppStore();
     return (
         <header className={styles.header}>
             <HamburgerMenu />
@@ -27,13 +28,17 @@ export default function Header() {
                 </nav>
             </div>
             {isAuthenticated && user ? (
+            <div className="flex items-center">
             <Avatar className="size-10">
                 <AvatarImage src={`avatars/${user.id}.png` } />
                 <AvatarFallback>MA</AvatarFallback>
-            </Avatar>
+            </Avatar> 
+            <Button variant="link" className={styles.signOutButton} onClick={logout}>
+                Sign Out
+            </Button>
+            </div>
             ) : (
                 <NavLink to="/login" className={`flex text-lg/1.3 font font-extrabold ${styles.navlink}`}>Sign In</NavLink>
-                
             )}
         </header>
     );

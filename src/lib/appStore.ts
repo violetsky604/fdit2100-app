@@ -6,7 +6,7 @@ import { AxiosError } from 'axios';
 
 interface UserState {
     user: AuthResponse | null;
-    isAuthenticated: Boolean;
+    isAuthenticated: boolean;
     isLoading: boolean;
     error: string | null;
 }
@@ -19,7 +19,8 @@ interface UserActions {
 
 type AppStoreUser = UserActions & UserState;
 
-const createUserSlice = (set): AppStoreUser => ({
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const createUserSlice = (set: any): AppStoreUser => ({
     user: null,
     isAuthenticated: false, 
     isLoading: false,
