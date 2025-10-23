@@ -23,7 +23,7 @@ export function fetchPostsByMember(memberId: number): Promise<PostsResponse> {
 }
 
 export function loginUser(credentials: LoginCredentials): Promise<AuthResponse> {
-    return axios.post(`$API_BASE_URL}/auth/login`, {
+    return axios.post(`${API_BASE_URL}/auth/login`, {
         username: credentials.username,
         password: credentials.password
     })
