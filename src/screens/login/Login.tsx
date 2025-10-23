@@ -65,7 +65,6 @@ export default function Login() {
                         <Button type="submit" className={styles.loginButton} style={{ marginTop: '25px' }}
                         >
                             Sign In
-
                         </Button>
                         </form>
                     </Form>
