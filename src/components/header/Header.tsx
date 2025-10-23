@@ -33,7 +33,7 @@ export default function Header() {
             </Avatar>
             ) : (
                 <NavLink to="/login" className={`flex text-lg/1.3 font font-extrabold ${styles.navlink}`}>Sign In</NavLink>
-
+                
             )}
         </header>
     );
