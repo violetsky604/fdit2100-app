@@ -1,0 +1,12 @@
+[
+    "american",
+    "classic",
+    "crime",
+    "english",
+    "fiction",
+    "french",
+    "history",
+    "love",
+    "magical",
+    "mystery"
+]

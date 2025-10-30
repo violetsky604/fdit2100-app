@@ -14,7 +14,7 @@ export default function Header() {
         <header className={styles.header}>
             <HamburgerMenu />
             <div className="hidden md:flex">
-                <h1 className="mr-8">
+                <h1 className="mr-8">   
                     <NavLink to="/" className={`flex text-lg/1.3 font-extrabold ${styles.navlink}`}>
                         <MegaphoneIcon className="size-6 mr-3" /> Connect
                     </NavLink>
