@@ -1,11 +1,14 @@
-import { Suspense, useContext } from "react";
+import { Suspense, useCallback, useContext } from "react";
 import { Outlet, useNavigate } from "react-router";
 import { PlusIcon } from "@heroicons/react/24/solid";
 import ErrorBoundary from "@/components/errors/ErrorBoundary";
+import { useAppStore } from "@/lib/appStore";
 import { Button } from "@/components/ui/button";
 import PostsList from "@/components/ui/posts/PostsList";
 import PostsSkeleton from "@/components/ui/skeletons/PostsSkeleton";
+import { CREATE_POST_AUTH_NOTICE } from "@/lib/constants";
 import { PostsLastPageContext } from "@/lib/contexts/PostsLastPageContext";
+import { toast } from "sonner";
 import styles from "./latestPosts.module.css";
 
 export default function LatestPosts() {
@@ -14,18 +17,28 @@ export default function LatestPosts() {
     throw new Error("LatestPosts must be used within a PostsPageProvider");
   }
   const { page, setPage } = context;
+
+
   const navigate = useNavigate();
+
+  const { isAuthenticated } = useAppStore();
+
+  const navigateAuthenticated = useCallback(() => {
+        if (!isAuthenticated) {
+                toast.error(CREATE_POST_AUTH_NOTICE, { position: 'top-right'});
+                return;
+    }
+    navigate('create-post');
+}, [isAuthenticated, navigate]);
 
   return (
     <>
       <div className={styles.latest_posts_container}>
         <h2 className="text-4xl font-bold mb-6">Latest Posts</h2>
 
-        {/* ✅ fixed syntax — onClick must be inside the opening tag */}
+    
         <Button
-          className={styles.create_post_button}
-          onClick={() => navigate("create-post")}
-        >
+          className={styles.create_post_button}onClick={navigateAuthenticated}  >
           <PlusIcon className="size-6" /> Create Post
         </Button>
       </div>
@@ -36,7 +49,7 @@ export default function LatestPosts() {
         </Suspense>
       </ErrorBoundary>
 
-      {/* optional nested outlet for modal routing */}
+
       <Outlet />
     </>
   );

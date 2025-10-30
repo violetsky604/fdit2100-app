@@ -31,7 +31,10 @@ import {
 } from '@/components/ui/select';
 import TagChip from "@/components/createPost/TagChip";
 import { Textarea } from "@/components/ui/textarea"; 
+import { useAppStore } from "@/lib/appStore";
 import styles from "@/components/latestPosts/latestPosts.module.css";
+import { toast } from 'sonner';
+import { CREATE_POST_AUTH_NOTICE } from "@/lib/constants";
 
 
 const allTags = [
@@ -65,6 +68,12 @@ const [availableTags, setAvailableTags] = useState<string[]>(allTags);
 
   const navigate = useNavigate();
 
+  const { isAuthenticated } = useAppStore();
+
+  if (!isAuthenticated) {
+     toast.error(CREATE_POST_AUTH_NOTICE, { position: 'top-right'});
+  }
+
   const addTag = useCallback((tag: string) => {
         if (tag && !selectedTags.includes(tag)) {
             setSelectedTags ([...selectedTags, tag]);
@@ -83,11 +92,9 @@ const [availableTags, setAvailableTags] = useState<string[]>(allTags);
     navigate(-1);
   };
 
-  return (
-    <Dialog
-      defaultOpen
-      onOpenChange={(open) => {
-        if (!open) navigate(-1);
+  return isAuthenticated && (<Dialog defaultOpen onOpenChange={(open) => {
+        if (!open) 
+            navigate(-1);
       }}
     >
       <DialogContent className={styles.dialog}>
