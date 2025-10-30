@@ -15,7 +15,7 @@ export default function TagChip(props: Props) {
       <Button
         type="button"
         size="sm"
-        className="ml-2 h-6 !bg-gray-400 !text-gray-300 !px-1 !py-0 hover:!text-black"
+        className="ml-2 h-6 !bg-gray-200 !text-gray-400 !px-1 !py-0 hover:!text-black"
         onClick={() => props.onDelete(props.tag)}
       >
         &times;
